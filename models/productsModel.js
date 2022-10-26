@@ -47,7 +47,7 @@ user:{
         default:0
     },
 //we can make seprate model for this but this small enough so we can do like this also
-    reviews:[reciewSchema],
+    reviews:[reviewSchema],
     numReviews:{
         type:Number,
         required:true,
@@ -65,4 +65,5 @@ user:{
     }
 },{timestamp:true})
 const Product=mongoose.model('Product',productSchema)
-export default Product;
+//export default Product;
+module.exports=Product

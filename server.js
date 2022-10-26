@@ -4,6 +4,7 @@ const port=process.env.PORT||5000
 const app = express()
 const products = require('./data/products')
 const  mongoose =require('mongoose')
+const connectDB=require('./config/db')
 const colors=require('colors')
 require("dotenv").config();
 
