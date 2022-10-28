@@ -20,8 +20,8 @@ res.end('server is running')
 //     const product=products.find(p=>p._id ===req.params.id)
 //     res.json(product)
 // })
-
 app.use('/api/products',productRoutes)
+
 const db=process.env.DATABASE_ATLAS
 mongoose
 .connect(db)
