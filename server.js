@@ -9,9 +9,12 @@ const colors=require('colors')
 require("dotenv").config();
 
 const productRoutes=require('./routes/productRoutes')
+
 app.get('/api',(req,res)=>{
 res.end('server is running')
 })
+
+
 //  app.get('/api/products',(req,res)=>{
 //     res.json(products)
 //  })
@@ -21,6 +24,7 @@ res.end('server is running')
 //     res.json(product)
 // })
 app.use('/api/products',productRoutes)
+
 
 const db=process.env.DATABASE_ATLAS
 mongoose
