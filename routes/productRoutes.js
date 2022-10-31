@@ -2,6 +2,7 @@ const express = require("express");
 const asyncHandler = require("express-async-handler");
 const Product = require("../models/productsModel");
 const router = express.Router();
+const mongoose=require('mongoose')
 //we can use try catch but we use inbuilt asyncHandler
 router.get(
   "/",
