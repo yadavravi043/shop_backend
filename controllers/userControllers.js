@@ -4,6 +4,8 @@ const {generateToken} =require('../utils/generateTokens')
 module.exports.authUser = asyncHandler(async (req, res) => {
     
         const {email,password}=req.body;
+        console.log(email)
+        console.log(password)
     //    res.send({
         //     email,password
         //    })
@@ -14,7 +16,7 @@ module.exports.authUser = asyncHandler(async (req, res) => {
         
       //FIND THAT ONLY USER WITH THAT EMAIL
          const user = await User.findOne({email});
-         console.log(user)
+         console.log("backend user data",user)
          if(user && (await user.matchedPassword(password))){
             res.json({
                 _id:user._id,
@@ -62,7 +64,7 @@ const userExists= await User.findOne({email})
         token:generateToken(user._id)
     })
   }else{
-    res.status(401)
+    res.status(400)
         throw new Error('user not registered')
   }
 })
