@@ -12,6 +12,8 @@ require("dotenv").config();
 
 const productRoutes=require('./routes/productRoutes')
 const userRoutes=require('./routes/userRoutes')
+const orderRoutes=require('./routes/orderRoutes')
+
 app.get('/api',(req,res)=>{
 res.end('server is running')
 })
@@ -27,7 +29,7 @@ res.end('server is running')
 // })
 app.use('/api/products',productRoutes)
 app.use('/api/users',userRoutes)
-
+app.use('/api/orders',orderRoutes)
 
 const db=process.env.DATABASE_ATLAS
 mongoose
