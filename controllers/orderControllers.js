@@ -38,6 +38,7 @@ module.exports.getOrderById=asyncHandler(async(req,res)=>{
     //const order= await Order.findById(req.params.id)
     //var valid= mongoose.Types.ObjectId.isValid(req.params.id);
     let orderId=req.params.id
+    console.log("hiii")
     console.log(orderId,"req id ")
     // console.log(mongoose.Types.ObjectId(orderId))
     console.log('line 42')
