@@ -1,6 +1,7 @@
 const expressAsyncHandler = require("express-async-handler");
 const asyncHandler = require("express-async-handler");
 const Order = require("../models/orderModel");
+const mongoose =require('mongoose')
 
 module.exports.addOrderItems = asyncHandler(async (req, res) => {
     const {
@@ -34,11 +35,18 @@ module.exports.addOrderItems = asyncHandler(async (req, res) => {
         
 });
 module.exports.getOrderById=asyncHandler(async(req,res)=>{
-    const order= await Order.findById(req.params.id).populate('user','name','email')
+    //const order= await Order.findById(req.params.id)
+    //var valid= mongoose.Types.ObjectId.isValid(req.params.id);
+    let orderId=req.params.id
+    console.log(orderId,"req id ")
+    // console.log(mongoose.Types.ObjectId(orderId))
+    console.log('line 42')
+    const order = await Order.findById(req.params.id).populate('user','name email')
+    console.log("order hai.................",order)
     if(order){
-  res.json(order)
+       res.json(order)
     }else{
-     res.status(400)
+     res.status(404)
      throw new Error("Order not Found")
     }
 })
