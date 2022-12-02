@@ -31,6 +31,12 @@ app.use('/api/products',productRoutes)
 app.use('/api/users',userRoutes)
 app.use('/api/orders',orderRoutes)
 
+
+//paypal
+app.get('/api/config/paypal',()=>res.send(process.env.PAYPAL_CLIENT_ID))
+
+
+//database
 const db=process.env.DATABASE_ATLAS
 mongoose
 .connect(db)
