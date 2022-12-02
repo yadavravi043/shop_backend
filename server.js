@@ -33,7 +33,7 @@ app.use('/api/orders',orderRoutes)
 
 
 //paypal
-app.get('/api/config/paypal',()=>res.send(process.env.PAYPAL_CLIENT_ID))
+app.get('/api/config/paypal',(req,res)=>res.send(process.env.PAYPAL_CLIENT_ID))
 
 
 //database
